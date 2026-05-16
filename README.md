@@ -57,7 +57,21 @@ sistemaSOA/
 
 ## Primeros Pasos
 
-1. **Clonar el repositorio**
+### Clonar o instalar el repositorio
+
+```bash
+# Opción 1: Clonar el repositorio
+git clone https://github.com/tu-usuario/SistemaSOA.git
+cd SistemaSOA
+
+# Opción 2: Si ya tienes el repositorio, navegar al directorio
+cd ruta/a/SistemaSOA
+
+# Opción 3: Copiar archivos manualmente si no usas git
+cp -r SistemaSOA/ ~/tu-proyecto/
+cd ~/tu-proyecto/
+```
+
 2. **Abrir sesión** con agente (Claude Code, OpenCode, etc.)
 3. **Ejecutar `/initsoa`**
 4. **Seleccionar tipo:** Técnico o Genérico
