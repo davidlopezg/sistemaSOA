@@ -1,47 +1,87 @@
-# Metas y Objetivos - Definicion de Exito
+# metas-objetivos.md - Definición de Éxito del Proyecto
 
-## Proyecto: Sistema SOA
+## Configuración del Proyecto
 
-Fecha de definicion: 2026-04-08
-
----
-
-## Criterios de Exito
-
-### Exito del Sistema
-- El orquestador puede delegar cualquier tarea sin ambiguedad
-- El contexto tiene siempre el 20% que genera el 80% de decisiones
-- No hay iteracion infinita sin revision
-
-### Exito por Operacion
-- Cada tarea completada en maximo 3 iteraciones
-- Output final siempre en /docs/
-- Aprendizajes registrados en memory/memory.md
+**Nombre:** [Pendiente - completar con /initsoa]  
+**Tipo:** [Técnico/Genérico]  
+**Fecha de creación:** YYYY-MM-DD  
+**Deadline:** [Pendiente]
 
 ---
 
-## KPIs del Sistema
+## Objetivo Principal
 
-| KPI | Meta | Frecuencia Medicion |
-|-----|------|---------------------|
-| Tasa de delegacion exitosa | >90% | Semanal |
-| Tiempo promedio por tarea | <30 min | Diario |
-| Archivos en /docs/ validados | 100% | Por entrega |
-| Purga cognitiva realizada | Si | Mensual |
+[Descripción del objetivo principal del proyecto]
 
 ---
 
-## Definicion de Fracaso
+## KPIs de Éxito
 
-- Iteracion infinita sin resultado
-- Datos crudos en el orquestador
-- Output directo sin pasar por delegacion
-- Sin registro en memory.md
+| Métrica | Objetivo | Actual | Estado |
+|---------|----------|--------|--------|
+| [KPI 1] | [Valor objetivo] | [Pendiente] | [OK/Pendiente/En riesgo] |
+| [KPI 2] | [Valor objetivo] | [Pendiente] | [OK/Pendiente/En riesgo] |
+| [KPI 3] | [Valor objetivo] | [Pendiente] | [OK/Pendiente/En riesgo] |
 
 ---
 
-## Brújula del Proyecto
+## Hitos
 
-**Objetivo principal:** Crear una infraestructura cognitiva que permita orquestar agentes de IA eliminando friccion operativa, previniendo la alucinacion por perdida de contexto, y reduciendo la sobrecarga mental del usuario.
+| Hito | Fecha Objetivo | Fecha Real | Estado |
+|------|----------------|------------|--------|
+| [Hito 1] | YYYY-MM-DD | [Pendiente] | [Pendiente/Completado/Atrasado] |
+| [Hito 2] | YYYY-MM-DD | [Pendiente] | [Pendiente/Completado/Atrasado] |
 
-**Prioridad:** Familia (Maria y Abril) > Negocio
+---
+
+## Definición de Éxito por Fase
+
+### Fase 1: Inicialización
+- [ ] Proyecto configurado con /initsoa
+- [ ] Contexto completado
+- [ ] SDDs generados para cada módulo
+
+### Fase 2: Módulos
+- [ ] MASTER_PLAN.md creado
+- [ ] SDDs con criterios de aceptación definidos
+- [ ] Dependencias mapeadas
+
+### Fase 3: Implementación (Técnico) / Ejecución (Genérico)
+- [ ] Código/entregables cumplen criterios
+- [ ] Arnés de pruebas pasa / Checklists completados
+- [ ] SDDs actualizados
+
+### Fase 4: Entrega
+- [ ] Output en `/docs/`
+- [ ] Validado contra criterios de aceptación
+- [ ] Checklist de calidad completado
+
+---
+
+## Criterios de Éxito General
+
+Un proyecto se considera **EXITOSO** cuando:
+1. ✅ Todos los SDDs en estado "Validado" o "Completado"
+2. ✅ Arnés/Checklists pasan al 100%
+3. ✅ Todos los KPIs en estado "OK"
+4. ✅ Deadline respetado o renegociado
+
+---
+
+## Anti-Patrones (Evitar)
+
+- ❌ Generar código/entregables sin SDD previo
+- ❌ Excepciones vacías (técnico)
+- ❌ Entregar sin pasar arnés/checklists
+- ❌ Mezclar cognición con ejecución
+- ❌ No documentar cambios de contexto
+
+---
+
+## Notas
+
+[Espacio para notas sobre cambios de objetivos o KPIs]
+
+---
+
+*Última actualización: YYYY-MM-DD*

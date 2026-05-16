@@ -1,82 +1,118 @@
-# Sistema SOA (Standardized Orchestration Architecture)
+# Sistema SOA - Sistema Multi-Agente
 
-## ¿Qué es?
+## Descripción
 
-Sistema SOA es una infraestructura cognitiva diseñada para orquestar agentes de Inteligencia Artificial de manera estructurada. Elimina la fricción operativa, previene la pérdida de contexto y reduce la sobrecarga mental del usuario mediante una topología de nodos bien definida.
+Infraestructura cognitiva auto-contenida para orquestar agentes IA con comandos estructurados, SDDs modulares y pipeline de validación. **Funciona para proyectos técnicos Y genéricos.**
 
-## Estructura del Sistema
+## Estructura
 
 ```
 sistemaSOA/
-├── agente.md              # Orquestador - El cerebro operativo
-├── memory/                # Memoria y cognición
-│   ├── memory.md          # Registro de aprendizajes y estado
-│   └── conversaciones/    # Logs de interacciones
-├── contexto/              # Reglas del negocio
-│   ├── systems-architecture.md  # Reglas de oro
+├── .agent/              # Configuración de comportamiento del agente
+├── agente.md            # Orquestador - punto de entrada
+├── memory/              # Cognición persistente
+│   ├── memory.md        # Registro de aprendizajes y config del proyecto
+│   └── conversaciones/  # Log de sesiones de trabajo
+├── contexto/            # Reglas de negocio y specs
+│   ├── systems-architecture.md  # Reglas de oro del sistema
 │   ├── metas-objetivos.md      # KPIs y definición de éxito
-│   └── knowledge.md            # Base de datos fáctica
-├── agents/                # Agentes especializados
-├── docs/                  # Salida y producción (entregables finales)
-├── systems/               # Flujos de trabajo
-└── manuals/               # Procedimientos operativos
+│   └── knowledge.md            # Base de datos factual
+├── agents/              # Sub-agentes especializados
+├── systems/             # SDDs técnicos (proyectos de código)
+├── manuals/             # Procedimientos operativos
+├── technical_core/      # Para proyectos técnicos
+│   ├── scripts/         # log_memory.py, log_conversation.py
+│   └── arnes_tests/    # Validación automatizada
+├── generic/             # Para proyectos NO técnicos
+│   ├── sdds/            # SDDs genéricos
+│   ├── checklists/      # Verificaciones manuales
+│   └── scripts/         # log_progreso.py, log_decision.py
+└── docs/                # Salida, plantillas y guías
 ```
 
-## Principios Fundamentales
+## Tipo de Proyectos Soportados
 
-- **Fragmentación de Tareas**: Prompts monolíticos prohibidos; todo debe desglosarse en unidades lógicas ejecutables.
-- **Ley de Pareto (80/20)**: Solo documentar el 20% de información que genera el 80% de decisiones correctas.
-- **Fronteras Estrictas**: Lo que el agente "aprende" jamais se mezcla con lo que "produce".
-- **Nomenclatura Estricta**: Uso obligatorio de kebab-case para archivos y carpetas.
+### Técnico
+- Desarrollo de software
+- Scripts y automatización
+- APIs, bases de datos
 
-## Cómo Implementar en un Nuevo Proyecto
+### Genérico
+- Marketing y campañas
+- Documentación
+- Gestión de proyectos
+- Formación
+- Eventos
+- Consultoría
 
-### Opción 1: Clonar desde repositorio Git
+## Comandos Disponibles
 
-```bash
-# Crear directorio para el nuevo proyecto
-mkdir mi-nuevo-proyecto
-cd mi-nuevo-proyecto
-
-# Clonar el sistema SOA
-git clone https://github.com/tu-repo/sistemaSOA.git .
-
-# O si está en tu máquina local:
-git clone /ruta/a/sistemaSOA .
-```
-
-### Opción 2: Copia manual
-
-```bash
-# Copiar estructura completa
-xcopy /E /I ruta\a\sistemaSOA nueva-carpeta
-```
-
-### Opción 3: Descargar ZIP
-
-1. Ir al repositorio en GitHub
-2. Hacer clic en "Code" > "Download ZIP"
-3. Extraer el contenido en la carpeta del proyecto
+| Comando | Descripción |
+|----------|-------------|
+| `/initsoa` | Inicializar proyecto (selector: técnico/genérico + contexto) |
+| `/status` | Ver estado actual del proyecto |
+| `/save` | Guardar sesión en memory/conversaciones/ |
+| `/learn "texto"` | Guardar aprendizaje en memory/memory.md |
+| `/help` | Mostrar todos los comandos disponibles |
 
 ## Primeros Pasos
 
-1. **Editar `agente.md`**: Configurar el orquestador según el objetivo del proyecto.
-2. **Actualizar `contexto/metas-objetivos.md`**: Definir KPIs y qué significa "éxito".
-3. **Completar `contexto/knowledge.md`**: Añadir información relevante del negocio/producto.
-4. **Revisar `contexto/systems-architecture.md`**: Ajustar reglas de oro si es necesario.
+1. **Clonar el repositorio**
+2. **Abrir sesión** con agente (Claude Code, OpenCode, etc.)
+3. **Ejecutar `/initsoa`**
+4. **Seleccionar tipo:** Técnico o Genérico
+5. **Responder preguntas de contexto** (nombre, objetivo, stakeholders, etc.)
+6. **Definir módulos** según el tipo
 
-## Ciclo de Vida de una Operación
+## Comportamiento del Sistema
 
-1. **Inicialización**: Definir objetivo en el orquestador (`agente.md`)
-2. **Carga de Contexto**: El orquestador absorbe automáticamente los archivos de `/contexto/`
-3. **Planificación**: Desglose de tareas y selección de sub-agentes
-4. **Ejecución y Registro**: El trabajo se realiza; errores se guardan en `memory/memory.md`
-5. **Entrega**: Output final depositado en `/docs/`, limpio y validado
+### Proyectos Técnicos
+- **SDD:** `docs/plantillas/SDD_TEMPLATE.md`
+- **Validación:** Arnés de pruebas (`technical_core/arnes_tests/`)
+- **Scripts:** `log_memory.py`, `log_conversation.py`
+- **Regla de excepciones:** Obligatoria
 
-## Mantenimiento
+### Proyectos Genéricos
+- **SDD:** `generic/sdds/SDD_TEMPLATE_GENERIC.md`
+- **Validación:** Checklists (`generic/checklists/`)
+- **Scripts:** `log_progreso.py`, `log_decision.py`
+- **Problemas/Soluciones:** Documentados en SDD
 
-Consultar `manuals/manual-mantenimiento.md` para instrucciones sobre purga cognitiva, nomenclatura de archivos y mantenimiento general del sistema.
+## Flujo de `/initsoa`
+
+```
+1. Scaffolding base
+2. Inyectar plantillas
+3. Preguntar tipo (técnico/genérico)
+4. Preguntar CONTEXTO:
+   - Nombre del proyecto
+   - Objetivo principal
+   - Stakeholders
+   - Deadline
+   - KPIs de éxito
+   - Recursos disponibles
+   - Módulos/SDDs
+5. ACTUALIZAR archivos de contexto
+6. Crear estructura + SDDs + MASTER_PLAN
+```
+
+## Scripts Disponibles
+
+### Técnico
+```bash
+python technical_core/scripts/log_memory.py add "Título" "Descripción"
+python technical_core/scripts/log_memory.py decision "Decisión" "Contexto" "Resultado"
+python technical_core/scripts/log_conversation.py save --resumen "Resumen"
+```
+
+### Genérico
+```bash
+python generic/scripts/log_progreso.py fase "Nombre fase" --completo 75
+python generic/scripts/log_progreso.py hito "Nombre hito" --completado
+python generic/scripts/log_decision.py add "Decisión" "Contexto" "Resultado"
+python generic/scripts/log_progreso.py show
+```
 
 ---
 
-*Sistema SOA - Infraestructura cognitiva para orquestación de agentes IA*
+*SOA v3.0 - Structured Orchestration Architecture*

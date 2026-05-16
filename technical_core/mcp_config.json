@@ -1,0 +1,47 @@
+{
+  "_comment": "Configuración de MCPs (Model Context Protocol) para el sistema SOA",
+  "version": "1.0",
+  "description": "Define los MCPs disponibles y sus configuraciones",
+  "mcps": [
+    {
+      "name": "notion-mcp",
+      "description": "Integración con Notion para workspace management",
+      "status": "pending",
+      "config": {
+        "auth_type": "oauth",
+        "required_env_vars": ["NOTION_CLIENT_ID", "NOTION_CLIENT_SECRET"]
+      }
+    },
+    {
+      "name": "pi-subagents",
+      "description": "Sistema de sub-agentes para tareas delegadas",
+      "status": "active",
+      "config": {
+        "enabled": true
+      }
+    }
+  ],
+  "skills": [
+    {
+      "name": "workspace-explorer",
+      "description": "Explorar y navegar espacios de Notion",
+      "trigger": "notion|workspace|wiki|base de conocimiento"
+    },
+    {
+      "name": "pi-subagents",
+      "description": "Delegar trabajo a sub-agentes",
+      "trigger": "delegar|paralelo|async|subagente"
+    },
+    {
+      "name": "setup-oauth",
+      "description": "Configurar autenticación OAuth con Notion",
+      "trigger": "configurar oauth|notion auth"
+    }
+  ],
+  "arnes_tests": {
+    "path": "technical_core/arnes_tests",
+    "data_path": "technical_core/arnes_tests/data",
+    "logs_path": "technical_core/logs",
+    "run_command": "python -m pytest ./technical_core/arnes_tests/ -v"
+  }
+}

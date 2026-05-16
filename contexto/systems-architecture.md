@@ -1,54 +1,114 @@
-# Systems Architecture - Reglas de Oro del Sistema SOA
+# systems-architecture.md - Reglas de Oro del Sistema
 
-## Principios Rectores
+## Principios Fundamentales
 
-### 1. Fragmentacion de Tareas (Micro-estructuracion)
-Ningun agente debe recibir un prompt monolitico. Toda instruccion compleja debe desglosarse en su minima unidad logica ejecutable.
+### 1. Separación Cognición / Ejecución
+- **Cognición:** `memory/`, `contexto/`, `agents/` - información y decisiones
+- **Ejecución:** `technical_core/`, `systems/`, `generic/` - implementación
+- **NUNCA mezclar:** Los datos de contexto no van en scripts de ejecución
 
-**Aplicacion:**
-- Cada tarea debe poder completarse en maximo 3 iteraciones
-- Si una tarea requiere mas, fragmentar en sub-tareas
-- Ningun prompt mayor a 500 palabras
+### 2. Fragmentación de Tareas
+- Prompts monolíticos PROHIBIDOS
+- Todo se desglosa en unidades lógicas ejecutables (SDDs)
+- Máximo 5 pasos por tarea antes de replantear
 
-### 2. Ley de Pareto (80/20) en el Contexto
-Solo se documenta en `knowledge.md` y este archivo el 20% de la informacion que genera el 80% de las decisiones correctas del agente.
+### 3. Ley de Pareto (80/20)
+- Documentar solo el 20% de información que genera el 80% de decisiones
+- Si un documento supera las 500 líneas, fragmentarlo
 
-**Aplicacion:**
-- Evitar sobrecarga de datos
-- Documentar solo lo esencial
-- La sobrecarga de datos colapsa la memoria
+### 4. Nomenclatura Estricta
+- Archivos/carpetas: **kebab-case** (`mi-archivo.md`, `modulo-test/`)
+- SDDs: `SDD_XX_nombre.md`
+- Variables: `snake_case`
+- Constantes: `UPPER_SNAKE_CASE`
+- Clases: `PascalCase`
 
-### 3. Ley de Parkinson en la Ejecucion
-Los agentes y sistemas deben tener limites claros de output y alcance. No se permite la iteracion infinita sin revision.
-
-**Aplicacion:**
-- Maximo 3 intentos por tarea antes de escalamiento
-- Fechas limite para cada fase
-- Revision obligatoria antes de pasar a produccion
-
-### 4. Fronteras Estrictas (Aislamiento de Dominio)
-Lo que el agente "aprende" o "procesa" jams se mezcla con lo que el agente "produce".
-
-**Aplicacion:**
-- Memoria y documentacion final viven en ecosistemas separados
-- `/memory/` = input y proceso
-- `/docs/` = output validado
-- Separacion estricta: nunca cruzar flujos
+### 5. Trazabilidad de Errores
+- Todo error registrado debe indicar causa raíz
+- Formato log: `[TIMESTAMP] [NIVEL] [COMPONENTE] [CAUSA] mensaje`
+- Ejemplo: `[2026-05-16 10:30:00] [ERROR] [AuthModule] [TOKEN_EXPIRED] Token JWT expirado`
 
 ---
 
-## Restricciones Eticas y de Formato
+## Regla de Excepciones (SOLO proyectos técnicos)
 
-1. Sin datos crudos en el orquestador
-2. Sin output directo desde el orquestador
-3. Todo pasa por delegacion
-4. Validacion obligatoria antes de /docs/
+### Formato Obligatorio
+
+```python
+# ✅ CORRECTO
+try:
+    resultado = operacion()
+except SpecificException as e:
+    logging.error(f"[CAUSA_RAÍZ] Descripción: {e}")
+    # Explicación: Este error ocurre cuando X, hacer Y para resolver
+    raise CustomException("Mensaje para usuario") from e
+
+# ❌ PROHIBIDO
+try:
+    resultado = operacion()
+except Exception:
+    pass
+```
+
+### Categorías de Excepciones (Técnico)
+
+| Categoría | Tratamiento | Ejemplo |
+|-----------|-------------|---------|
+| Validación | Log + return error | Datos malformados |
+| Conexión | Log + reintentar | Timeout, DNS fail |
+| Permiso | Log + throw | Auth fail, 403 |
+| Sistema | Log + escalar | Disk full, OOM |
+
+### Para Proyectos Genéricos
+Usar sección "Problemas y Soluciones" en SDD en vez de try/except.
 
 ---
 
-## Principios Operativos
+## Estructura de Entrega
 
-- Nomenclatura: siempre kebab-case
-- Extension maxima de archivos: revisar regularmente
-- Purga cognitiva: segun manual-mantenimiento.md
-- Tolerancia cero a laambigüedad: el error esta en la estructura, no en la IA
+### Pipeline de Validación
+
+```
+INPUT → CONTEXTO → PLAN → EJECUCIÓN → PRUEBAS → ENTREGA
+         ↓          ↓         ↓           ↓
+      Leer docs   SDD      Código      Arnés      /docs/
+                 ↓         ↓        Checklists
+              Módulos   Entregables
+```
+
+### Criterios de Entrega
+
+Para que un output vaya a `/docs/` debe cumplir:
+1. ✅ Código/entregable sin errores
+2. ✅ Pasado por Arnés (técnico) o Checklists (genérico)
+3. ✅ Documentado (comentarios inline + SDD actualizado)
+4. ✅ Sin `TODO` o `FIXME` sin resolver
+5. ✅ Excepciones tienen logging + causa raíz (técnico)
+
+---
+
+## Métricas de Salud del Sistema
+
+| Métrica | Objetivo | Alarmas |
+|---------|----------|---------|
+| Tasa de errores | < 1% | > 5% |
+| Tiempo de respuesta | < 5s | > 10s |
+| Trazabilidad errores | 100% con causa | < 90% |
+
+---
+
+## Tipo de Proyecto
+
+### Técnico
+- Código, scripts, APIs, bases de datos
+- Arnés de pruebas obligatorio
+- Regla de excepciones obligatoria
+
+### Genérico
+- Marketing, docs, gestión, eventos
+- Checklists en vez de tests
+- "Problemas y Soluciones" en SDD
+
+---
+
+*Última actualización: 2026-05-16 v3.0*

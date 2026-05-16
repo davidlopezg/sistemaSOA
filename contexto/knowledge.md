@@ -1,24 +1,90 @@
-# Knowledge - Base de Datos Fctica
+# knowledge.md - Base de Datos Fáctica del Proyecto
 
-## Informacion del Proyecto
+## Datos del Proyecto
 
-### Sistema SOA
-- **Tipo:** Infraestructura cognitiva para orquestación de agentes IA
-- **Fecha de creacion:** 2026-04-08
-- **Estado:** Inicializacion
+**Nombre:** [Pendiente]
+**Tipo:** [Técnico/Genérico]
+**Fecha inicio:** YYYY-MM-DD
+**Deadline:** [Pendiente]
 
 ---
 
-## Datos del Negocio
+## Stakeholders
 
-**Pendiente de completar por el usuario:**
-- Nombre del proyecto principal
-- Datos del negocio
-- Mercado objetivo
-- Producto o servicio
+| Nombre | Rol | Contacto | Notas |
+|--------|-----|----------|-------|
+| [Nombre] | [Rol] | [Email] | [Notas] |
+| [Nombre] | [Rol] | [Email] | [Notas] |
+| [Nombre] | [Rol] | [Email] | [Notas] |
+
+---
+
+## Equipo
+
+| Persona | Responsabilidad | Disponibilidad |
+|---------|----------------|----------------|
+| [Nombre] | [Rol/Área] | [Días/semana] |
+| [Nombre] | [Rol/Área] | [Días/semana] |
+
+---
+
+## Herramientas y Recursos
+
+### Software
+- [ ] [Herramienta 1]
+- [ ] [Herramienta 2]
+- [ ] [Herramienta 3]
+
+### Hardware
+- [ ] [Recurso 1]
+- [ ] [Recurso 2]
+
+### Presupuesto
+| Partida | Asignado | Usado | Restante |
+|---------|----------|-------|----------|
+| [Concepto] | [€] | [€] | [€] |
+| **Total** | [€] | [€] | [€] |
+
+---
+
+## Información del Negocio/Dominio
+
+### Contexto del Proyecto
+[Descripción del contexto en que se enmarca el proyecto]
+
+### Restricciones
+- [ ] Restricción 1
+- [ ] Restricción 2
+
+### Dependencias Externas
+- [ ] Dependencia 1 (dueño: [Nombre])
+- [ ] Dependencia 2 (dueño: [Nombre])
+
+---
+
+## Definiciones Clave
+
+| Término | Definición |
+|---------|------------|
+| [Término 1] | [Definición] |
+| [Término 2] | [Definición] |
+| [Término 3] | [Definición] |
+
+---
+
+## URLs y Endpoints Relevantes
+
+| Recurso | URL/Path | Notas |
+|---------|----------|-------|
+| [Recurso 1] | [URL] | [Notas] |
+| [Recurso 2] | [URL] | [Notas] |
 
 ---
 
 ## Notas
 
-Este archivo contiene información fáctica estática del proyecto. Se actualiza solo cuando hay datos concretos, no con aprendizajes (esos van a memory.md).
+[Información adicional del dominio o del negocio]
+
+---
+
+*Última actualización: YYYY-MM-DD*
