@@ -1,5 +1,3 @@
-
-
 # Sistema SOA - Sistema Multi-Agente
 
 ## Descripción
@@ -11,26 +9,64 @@ Infraestructura cognitiva auto-contenida para orquestar agentes IA con comandos 
 ```
 sistemaSOA/
 ├── .agent/              # Configuración de comportamiento del agente
-├── agente.md            # Orquestador - punto de entrada
-├── memory/              # Cognición persistente
-│   ├── memory.md        # Registro de aprendizajes y config del proyecto
-│   └── conversaciones/  # Log de sesiones de trabajo
-├── context/            # Reglas de negocio y specs
-│   ├── systems-architecture.md  # Reglas de oro del sistema
+│   └── SYSTEM_PROMPT.md # Prompt base del sistema
+│
+├── agente.md            # Agente Orquestador (punto de entrada)
+│   ├── Sección A: Iniciador    # /initsoa - crear proyectos desde cero
+│   ├── Sección B: Orquestador  # Delegar tareas durante el proyecto
+│   └── Sección C: Comunes      # Comandos, memoria, tipos de proyecto
+│
+├── agents/              # Plantillas de sub-agentes
+│   ├── agent-builder.md # Plantilla para crear nuevos agentes
+│   └── ejemplo-builder.md
+│
+├── skills/              # Plantillas de skills
+│   └── skill-builder.md # Plantilla para crear nuevas skills
+│
+├── context/             # Contexto y cognición del proyecto
+│   ├── conversations/   # Log de sesiones de trabajo
+│   ├── memory/
+│   │   └── memory.md    # Registro de aprendizajes y config del proyecto
+│   ├── knowledge/       # Base de datos factual + documentos
+│   │   └── knowledge.md
 │   ├── metas-objetivos.md      # KPIs y definición de éxito
-│   └── knowledge/            # Base de datos factual + docs
-├── agents/              # Sub-agentes especializados
+│   └── systems-architecture.md # Reglas de oro del sistema
+│
 ├── systems/             # SDDs técnicos (proyectos de código)
-├── manuals/             # Procedimientos operativos
-├── technical_core/      # Para proyectos técnicos
-│   ├── scripts/         # log_memory.py, log_conversation.py
-│   └── arnes_tests/    # Validación automatizada
+│   └── sdds/            # Documentos de diseño
+│
 ├── generic/             # Para proyectos NO técnicos
 │   ├── sdds/            # SDDs genéricos
-│   ├── checklists/      # Verificaciones manuales
-│   └── scripts/         # log_progreso.py, log_decision.py
-└── docs/                # Salida, plantillas y guías
+│   └── checklists/      # Verificaciones manuales
+│
+├── technical_core/      # Para proyectos técnicos
+│   ├── scripts/         # log_memory.py, log_conversation.py
+│   └── arnes_tests/     # Validación automatizada
+│
+├── manuals/             # Procedimientos operativos
+├── docs/                # Salida, plantillas y guías
+└── conversations/       # Histórico de sesiones (deprecated, usar context/)
 ```
+
+## Propósito de cada directorio
+
+| Directorio | Propósito |
+|------------|-----------|
+| `.agent/` | Configuración del comportamiento del agente |
+| `agente.md` | Orquestador: inicia proyectos y delega tareas |
+| `agents/` | Plantillas para crear sub-agentes especializados |
+| `skills/` | Plantillas para crear skills (capacidades externas) |
+| `context/` | Todo el contexto del proyecto activo |
+| `context/memory/` | Aprendizajes, decisiones, config persistente |
+| `context/conversations/` | Historial de sesiones |
+| `context/knowledge/` | Datos factuales y documentos de referencia |
+| `context/metas-objetivos.md` | KPIs, hitos, criterios de éxito |
+| `context/systems-architecture.md` | Reglas de oro del sistema |
+| `systems/` | SDDs para proyectos técnicos (código) |
+| `generic/` | SDDs para proyectos genéricos (marketing, docs, gestión) |
+| `technical_core/` | Scripts y tests para proyectos técnicos |
+| `manuals/` | Procedimientos operativos y guías |
+| `docs/` | Plantillas, guías rápidas, salida de trabajo |
 
 ## Tipo de Proyectos Soportados
 
@@ -53,37 +89,32 @@ sistemaSOA/
 |----------|-------------|
 | `/initsoa` | Inicializar proyecto (selector: técnico/genérico + contexto) |
 | `/status` | Ver estado actual del proyecto |
-| `/save` | Guardar sesión en memory/conversaciones/ |
+| `/save` | Guardar sesión en context/conversations/ |
 | `/learn "texto"` | Guardar aprendizaje en context/memory/memory.md |
 | `/help` | Mostrar todos los comandos disponibles |
 
 ## Primeros Pasos
 
-### Clonar o instalar el repositorio
-
-```bash
-# Opción 1: Clonar el repositorio
-git clone https://github.com/tu-usuario/SistemaSOA.git
-cd SistemaSOA
-
-# Opción 2: Si ya tienes el repositorio, navegar al directorio
-cd ruta/a/SistemaSOA
-
-# Opción 3: Copiar archivos manualmente si no usas git
-cp -r SistemaSOA/ ~/tu-proyecto/
-cd ~/tu-proyecto/
-```
+1. **Clonar o instalar el repositorio**
+   ```bash
+   git clone https://github.com/tu-usuario/sistemaSOA.git
+   cd sistemaSOA
+   ```
 
 2. **Abrir sesión** con agente (Claude Code, OpenCode, etc.)
+
 3. **Ejecutar `/initsoa`**
+
 4. **Seleccionar tipo:** Técnico o Genérico
+
 5. **Responder preguntas de contexto** (nombre, objetivo, stakeholders, etc.)
+
 6. **Definir módulos** según el tipo
 
 ## Comportamiento del Sistema
 
 ### Proyectos Técnicos
-- **SDD:** `docs/plantillas/SDD_TEMPLATE.md`
+- **SDD:** `systems/sdds/SDD_TEMPLATE.md`
 - **Validación:** Arnés de pruebas (`technical_core/arnes_tests/`)
 - **Scripts:** `log_memory.py`, `log_conversation.py`
 - **Regla de excepciones:** Obligatoria
