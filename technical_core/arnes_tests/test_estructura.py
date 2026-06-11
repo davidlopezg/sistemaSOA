@@ -24,8 +24,8 @@ from pathlib import Path
 REQUIRED_STRUCTURE = {
     'directories': [
         '.agent',
-        'memory/conversaciones',
-        'contexto',
+        'context/conversations',
+        'context',
         'agents',
         'systems',
         'manuals',
@@ -37,11 +37,11 @@ REQUIRED_STRUCTURE = {
     'files': [
         'agente.md',
         'README.md',
-        '.agent/SYSTEM_PROMPT.md',
+        '.agent/SYSTEM_PROMPT_BACKUP.md',
         'docs/plantillas/SDD_TEMPLATE.md',
-        'contexto/systems-architecture.md',
-        'contexto/metas-objetivos.md',
-        'memory/memory.md',
+        'context/systems-architecture.md',
+        'context/metas-objetivos.md',
+        'context/memory/memory.md',
         'manuals/SOP_playbook.md',
         'manuals/checklist_calidad.md',
     ]
@@ -66,7 +66,12 @@ def check_structure(base_dir):
     return missing
 
 def main():
-    target_dir = sys.argv[1] if len(sys.argv) > 1 else '.'
+    # Si no se especifica directorio, usar el directorio del script (raíz del proyecto)
+    if len(sys.argv) > 1:
+        target_dir = sys.argv[1]
+    else:
+        # El test está en technical_core/arnes_tests/, subir 2 niveles
+        target_dir = Path(__file__).parent.resolve().parent.parent
     
     print(f"[INFO] Verificando estructura SOA en {target_dir}...")
     

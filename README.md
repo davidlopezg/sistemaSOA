@@ -1,8 +1,14 @@
 # Sistema SOA - Sistema Multi-Agente
 
+[![Tests](https://github.com/tu-usuario/sistemaSOA/actions/workflows/tests.yml/badge.svg)](https://github.com/tu-usuario/sistemaSOA/actions/workflows/tests.yml)
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ## Descripción
 
 Infraestructura cognitiva auto-contenida para orquestar agentes IA con comandos estructurados, SDDs modulares y pipeline de validación. **Funciona para proyectos técnicos Y genéricos.**
+
+> 📚 **Documentación completa:** [Ver Guía Rápida](./docs/GUIA_RAPIDA.md)
 
 ## Estructura
 

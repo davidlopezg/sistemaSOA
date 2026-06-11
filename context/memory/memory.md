@@ -7,7 +7,7 @@ Este archivo tiene dos funciones principales:
 1. **Configuración del proyecto** - Información del proyecto actual (completado en `/initsoa`)
 2. **Aprendizajes y decisiones** - Cosas importantes que vale la pena recordar
 
-**NO es un log de conversación** - eso va en `memory/conversaciones/`
+**NO es un log de conversación** - eso va en `context/conversations/`
 
 ---
 
@@ -64,7 +64,7 @@ proyecto_actual:
 
 ## Historial de Sesiones
 
-> 📁 Los transcripts completos van en `memory/conversaciones/`
+> 📁 Los transcripts completos van en `context/conversations/`
 > Solo registrar aquí resúmenes de sesiones importantes
 
 | Fecha | Sesión | Resumen |
@@ -72,5 +72,16 @@ proyecto_actual:
 | [Fecha] | [Nombre archivo] | [Resumen] |
 
 ---
+
+## [2026-06-11] Test auditoría
+
+### Descripción
+Probando el sistema
+
+### Acción/Resultado
+[Pendiente de completar]
+
+### Referencia
+[Sesión: context/conversations/2026-06-11_2331-*.md]
 
 *Última actualización: YYYY-MM-DD*

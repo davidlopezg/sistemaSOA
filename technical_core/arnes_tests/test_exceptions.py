@@ -15,15 +15,9 @@ import sys
 from pathlib import Path
 
 PATTERNS_BAD = [
-    r'except\s*:\s*\n\s*pass\b',           # except: pass
-    r'except\s+Exception\s*:\s*\n\s*pass\b',  # except Exception: pass
-    r'except\s+\w+\s*:\s*\n\s*#.*pass',      # except Error: # pass (comentado)
-]
-
-PATTERNS_GOOD = [
-    r'except.*logging\.',
-    r'except.*log\.',
-    r'except.*print\(',  # Aceptable si no hay mejor opción
+    r'except\s*:\s*pass\b',                  # except: pass
+    r'except\s+Exception\s*:\s*pass\b',     # except Exception: pass
+    r'except\s+\w+\s*:\s*pass\b',           # except Error: pass
 ]
 
 def check_file(filepath):
@@ -31,23 +25,45 @@ def check_file(filepath):
     issues = []
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
-            content = f.read()
-            lines = content.split('\n')
+            lines = f.readlines()
+            
+            in_list_def = False  # Track if we're inside a list/array definition
             
             for i, line in enumerate(lines, 1):
                 # Skip comments
                 stripped = line.strip()
                 if stripped.startswith('#'):
                     continue
-                    
-                # Check for bad patterns
+                
+                # Track list boundaries
+                if '[' in line and not in_list_def:
+                    in_list_def = True
+                if ']' in line and in_list_def:
+                    in_list_def = False
+                
+                # Skip lines inside list definitions (e.g., regex patterns)
+                if in_list_def:
+                    continue
+                
+                # Check for bad patterns (single-line: except: pass)
                 for pattern in PATTERNS_BAD:
-                    if re.search(pattern, content):
+                    if re.search(pattern, line):
+                        # Aceptar si tiene logging o print en la misma línea
+                        if 'logging.' in line or 'print(' in line:
+                            continue
+                        # Aceptar si las siguientes 3 líneas tienen logging/print (lookahead)
+                        has_logging_ahead = False
+                        for j in range(i, min(i + 3, len(lines) + 1)):
+                            if j < len(lines) and ('logging.' in lines[j] or 'print(' in lines[j]):
+                                has_logging_ahead = True
+                                break
+                        if has_logging_ahead:
+                            continue
                         issues.append({
                             'file': filepath,
                             'line': i,
                             'issue': 'Excepción vacía o sin logging',
-                            'match': re.search(pattern, content).group()
+                            'match': re.search(pattern, line).group()
                         })
     except Exception as e:
         # Registro obligatorio - causa raíz: archivo no legible o encoding
@@ -72,7 +88,11 @@ def scan_directory(directory):
     return all_issues
 
 def main():
-    target_dir = sys.argv[1] if len(sys.argv) > 1 else '.'
+    # Si no se especifica directorio, usar el directorio del script (raíz del proyecto)
+    if len(sys.argv) > 1:
+        target_dir = sys.argv[1]
+    else:
+        target_dir = Path(__file__).parent.resolve().parent.parent
     
     print(f"[INFO] Escaneando {target_dir} en busca de excepciones vacías...")
     

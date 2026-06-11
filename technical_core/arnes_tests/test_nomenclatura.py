@@ -28,6 +28,8 @@ EXCLUDED_FILES = {
     'checklist_calidad.md',  # Checklist operativo
     'checklist_entrega.md',  # Checklist genérico
     'GUIA_RAPIDA.md',       # Guía de usuario
+    # Archivos estándar de proyecto
+    'CHANGELOG.md', 'CONTRIBUTING.md', 'CODE_OF_CONDUCT.md',
 }
 
 def check_filename(filepath):
@@ -45,11 +47,13 @@ def check_filename(filepath):
     
     # Archivos Python -> snake_case
     if ext == '.py':
-        if name != name.lower().replace('_', '') and name != name.replace('_', '').lower():
-            pass  # Allow snake_case
-        if re.match(r'^[a-z][a-z0-9_]*\.py$', name) is None and not name.startswith('test_'):
-            # Check if it violates kebab-case expectation for non-python
-            pass
+        # Aceptar snake_case: test_*.py, log_*.py, etc.
+        if not re.match(r'^[a-z][a-z0-9_]*\.py$', name) and not name.startswith('test_') and not name.startswith('log_'):
+            issues.append({
+                'file': filepath,
+                'issue': f'Nombre de archivo Python no snake_case: {name}',
+                'expected': 'mi_modulo.py'
+            })
     
     # Documentos MD -> kebab-case
     if ext == '.md':
@@ -89,7 +93,11 @@ def scan_directory(directory):
     return all_issues
 
 def main():
-    target_dir = sys.argv[1] if len(sys.argv) > 1 else '.'
+    # Si no se especifica directorio, usar el directorio del script (raíz del proyecto)
+    if len(sys.argv) > 1:
+        target_dir = sys.argv[1]
+    else:
+        target_dir = Path(__file__).parent.resolve().parent.parent
     
     print(f"[INFO] Verificando naming conventions en {target_dir}...")
     

@@ -15,8 +15,11 @@ Uso:
 import os
 import sys
 from datetime import datetime
+from pathlib import Path
 
-MEMORY_FILE = "memory/memory.md"
+# Resolver ruta relativa al directorio del script, no al cwd
+SCRIPT_DIR = Path(__file__).parent.resolve().parent.parent
+MEMORY_FILE = SCRIPT_DIR / "context" / "memory" / "memory.md"
 
 def read_memory():
     """Lee el contenido actual de memory.md"""
@@ -67,7 +70,7 @@ def add_entry(titulo, descripcion):
 [Pendiente de completar]
 
 ### Referencia
-[Sesión: conversaciones/{fecha}_{hora.replace(':', '')}-*.md]
+[Sesión: context/conversations/{fecha}_{hora.replace(':', '')}-*.md]
 
 """
     

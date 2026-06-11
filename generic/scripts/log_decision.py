@@ -14,9 +14,12 @@ Uso:
 import os
 import sys
 from datetime import datetime
+from pathlib import Path
 
-MEMORY_FILE = "memory/memory.md"
-DECISIONS_FILE = "systems/decisiones.md" if os.path.exists("systems") else "generic/decisiones.md"
+# Resolver ruta relativa al directorio del script, no al cwd
+SCRIPT_DIR = Path(__file__).parent.resolve().parent.parent
+MEMORY_FILE = SCRIPT_DIR / "context" / "memory" / "memory.md"
+DECISIONS_FILE = SCRIPT_DIR / "systems" / "decisiones.md" if (SCRIPT_DIR / "systems").exists() else SCRIPT_DIR / "generic" / "decisiones.md"
 
 def add_decision(decision, contexto, resultado):
     """Registra una decisión en memory.md"""

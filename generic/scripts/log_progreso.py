@@ -14,9 +14,12 @@ Uso:
 import os
 import sys
 from datetime import datetime
+from pathlib import Path
 
-MEMORY_FILE = "memory/memory.md"
-SDDS_DIR = "generic/sdds"
+# Resolver ruta relativa al directorio del script, no al cwd
+SCRIPT_DIR = Path(__file__).parent.resolve().parent.parent
+MEMORY_FILE = SCRIPT_DIR / "context" / "memory" / "memory.md"
+SDDS_DIR = SCRIPT_DIR / "generic" / "sdds"
 
 def update_memory_progreso(fase, porcentaje, nota=""):
     """Actualiza memory.md con progreso de proyecto"""

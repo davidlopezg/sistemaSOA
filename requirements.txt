@@ -1,0 +1,11 @@
+# Sistema SOA - Dependencias Python
+# Este sistema usa solo Python estándar (stdlib)
+# No se requieren dependencias externas
+
+# Módulos utilizados:
+# - os, sys, re, datetime (stdlib)
+# - pathlib (Python 3.4+)
+# - unittest/pytest (opcional, para tests)
+
+# Si deseas ejecutar los tests automatizados:
+# pip install pytest

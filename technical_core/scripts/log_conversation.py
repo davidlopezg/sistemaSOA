@@ -14,9 +14,12 @@ Uso:
 import os
 import sys
 from datetime import datetime
+from pathlib import Path
 
-CONVERSATIONS_DIR = "memory/conversaciones"
-TEMPLATE_FILE = "memory/conversaciones/README.md"
+# Resolver rutas relativas al directorio del script, no al cwd
+SCRIPT_DIR = Path(__file__).parent.resolve().parent.parent
+CONVERSATIONS_DIR = SCRIPT_DIR / "context" / "conversations"
+TEMPLATE_FILE = SCRIPT_DIR / "context" / "conversations" / "README.md"
 
 def get_template():
     """Lee el template de conversación desde README.md"""
