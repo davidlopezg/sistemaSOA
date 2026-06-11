@@ -56,9 +56,9 @@ Ejemplo: "3 módulos: auth, API, docs"
 
 | Archivo | Contenido |
 |---------|-----------|
-| `memory/memory.md` | Config: nombre, tipo, objetivo, deadline |
-| `contexto/metas-objetivos.md` | KPIs, hitos, criterios de éxito |
-| `contexto/knowledge.md` | Stakeholders, recursos, negocio |
+| `context/memory/memory.md` | Config: nombre, tipo, objetivo, deadline |
+| `context/metas-objetivos.md` | KPIs, hitos, criterios de éxito |
+| `context/knowledge/knowledge.md` | Stakeholders, recursos, negocio |
 
 Y genera:
 - `MASTER_PLAN.md`
@@ -162,9 +162,9 @@ sistemaSOA/
 ├── memory/              # Memoria
 │   ├── memory.md        # → Config proyecto + aprendizajes
 │   └── conversaciones/  # → Log sesiones
-├── contexto/            # Reglas y specs
+├── context/            # Reglas y specs
 │   ├── metas-objetivos.md  # → KPIs, hitos, éxito
-│   └── knowledge.md     # → Stakeholders, recursos, negocio
+│   └── knowledge/        # → Stakeholders, recursos, negocio
 ├── agents/              # Sub-agentes
 ├── systems/             # SDDs técnicos
 ├── manuals/             # Procedimientos
@@ -217,13 +217,13 @@ Respuestas del usuario en /initsoa
        │
        ▼
 ┌─────────────────────────────────────┐
-│  memory/memory.md                   │
+│  context/memory/memory.md                   │
 │  └── Config proyecto completo      │
 ├─────────────────────────────────────┤
-│  contexto/metas-objetivos.md       │
+│  context/metas-objetivos.md       │
 │  └── KPIs, hitos, éxito            │
 ├─────────────────────────────────────┤
-│  contexto/nowledge.md              │
+│  context/nowledge.md              │
 │  └── Stakeholders, recursos        │
 └─────────────────────────────────────┘
        │

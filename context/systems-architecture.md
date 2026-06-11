@@ -3,7 +3,7 @@
 ## Principios Fundamentales
 
 ### 1. Separación Cognición / Ejecución
-- **Cognición:** `memory/`, `contexto/`, `agents/` - información y decisiones
+- **Cognición:** `memory/`, `context/`, `agents/` - información y decisiones
 - **Ejecución:** `technical_core/`, `systems/`, `generic/` - implementación
 - **NUNCA mezclar:** Los datos de contexto no van en scripts de ejecución
 

@@ -6,12 +6,12 @@ Este directorio contiene scripts de utilidad para automatizar tareas del sistema
 
 | Script | Propósito | Uso |
 |--------|-----------|-----|
-| `log_memory.py` | Registrar aprendizajes en memory/memory.md | `python log_memory.py add "título" "descripción"` |
+| `log_memory.py` | Registrar aprendizajes en context/memory/memory.md | `python log_memory.py add "título" "descripción"` |
 | `log_conversation.py` | Guardar sesión en conversaciones | `python log_conversation.py save --resumen "texto"` |
 
 ## log_memory.py
 
-Registra aprendizajes importantes, decisiones y errores en `memory/memory.md`.
+Registra aprendizajes importantes, decisiones y errores en `context/memory/memory.md`.
 
 ### Comandos
 

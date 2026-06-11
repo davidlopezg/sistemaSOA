@@ -15,10 +15,10 @@ sistemaSOA/
 ├── memory/              # Cognición persistente
 │   ├── memory.md        # Registro de aprendizajes y config del proyecto
 │   └── conversaciones/  # Log de sesiones de trabajo
-├── contexto/            # Reglas de negocio y specs
+├── context/            # Reglas de negocio y specs
 │   ├── systems-architecture.md  # Reglas de oro del sistema
 │   ├── metas-objetivos.md      # KPIs y definición de éxito
-│   └── knowledge.md            # Base de datos factual
+│   └── knowledge/            # Base de datos factual + docs
 ├── agents/              # Sub-agentes especializados
 ├── systems/             # SDDs técnicos (proyectos de código)
 ├── manuals/             # Procedimientos operativos
@@ -54,7 +54,7 @@ sistemaSOA/
 | `/initsoa` | Inicializar proyecto (selector: técnico/genérico + contexto) |
 | `/status` | Ver estado actual del proyecto |
 | `/save` | Guardar sesión en memory/conversaciones/ |
-| `/learn "texto"` | Guardar aprendizaje en memory/memory.md |
+| `/learn "texto"` | Guardar aprendizaje en context/memory/memory.md |
 | `/help` | Mostrar todos los comandos disponibles |
 
 ## Primeros Pasos

@@ -1,4 +1,4 @@
-# memory/memory.md - Registro de Estado y Aprendizajes
+# context/memory/memory.md - Registro de Estado y Aprendizajes
 
 ## Propósito
 

@@ -83,7 +83,7 @@ Plantilla para documentar módulos de proyectos no técnicos.
 1. Identificar problema
 2. Clasificar impacto
 3. Aplicar solución predefinida o crear nueva
-4. Documentar en `memory/memory.md`
+4. Documentar en `context/memory/memory.md`
 
 ---
 

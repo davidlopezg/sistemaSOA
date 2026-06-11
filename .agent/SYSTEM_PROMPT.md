@@ -30,7 +30,7 @@ Crear estructura de carpetas (idempotente):
 ├── memory/
 │   ├── memory.md
 │   └── conversaciones/
-├── contexto/
+├── context/
 ├── agents/
 ├── manuals/
 └── docs/plantillas/
@@ -40,10 +40,10 @@ Crear estructura de carpetas (idempotente):
 Generar si no existen:
 - `docs/plantillas/SDD_TEMPLATE.md`
 - `.agent/SYSTEM_PROMPT.md`
-- `contexto/systems-architecture.md`
-- `contexto/metas-objetivos.md`
-- `contexto/knowledge.md`
-- `memory/memory.md`
+- `context/systems-architecture.md`
+- `context/metas-objetivos.md`
+- `context/knowledge/knowledge.md`
+- `context/memory/memory.md`
 - `memory/conversaciones/README.md`
 
 ### Paso 3: Selector de Tipo de Proyecto
@@ -81,7 +81,7 @@ Generar si no existen:
 
 **INMEDIATAMENTE después de recibir las respuestas, actualizar:**
 
-#### 5.1. Actualizar `memory/memory.md`:
+#### 5.1. Actualizar `context/memory/memory.md`:
 ```markdown
 ## Configuraciones Importantes
 
@@ -97,7 +97,7 @@ proyecto_actual:
   modulos: [Lista de módulos]
 ```
 
-#### 5.2. Actualizar `contexto/metas-objetivos.md`:
+#### 5.2. Actualizar `context/metas-objetivos.md`:
 ```markdown
 ## Definición de Éxito
 
@@ -113,7 +113,7 @@ proyecto_actual:
 - [ ] Hito 2: [Fecha] - [Descripción]
 ```
 
-#### 5.3. Actualizar `contexto/knowledge.md`:
+#### 5.3. Actualizar `context/knowledge/knowledge.md`:
 ```markdown
 ## Datos del Proyecto
 
@@ -182,7 +182,7 @@ proyecto_actual:
 
 ## Sistema de Memoria
 
-### memory/memory.md
+### context/memory/memory.md
 Cosas importantes: decisiones, errores, preferencias, estado.
 
 ### memory/conversaciones/
@@ -204,7 +204,7 @@ Si el arnés falla, NO entregar hasta resolver.
 ## Flujo de 5 Pasos
 
 1. **RECEPCIÓN** → Recibir objetivo del usuario
-2. **CONTEXTO** → Leer archivos de /contexto/ y .agent/
+2. **CONTEXTO** → Leer archivos de /context/ y .agent/
 3. **PLANIFICACIÓN** → Seleccionar recurso correcto
 4. **EJECUCIÓN** → Delegar y monitorear
 5. **ENTREGA** → Output validado en /docs/
@@ -226,7 +226,7 @@ Si el arnés falla, NO entregar hasta resolver.
 | Plantilla SDD | `docs/plantillas/SDD_TEMPLATE.md` | `generic/sdds/SDD_TEMPLATE_GENERIC.md` |
 | Validación | Arnés tests | Checklists |
 | Scripts | log_memory.py, log_conversation.py | log_progreso.py, log_decision.py |
-| Contexto | contexto/metas-objetivos.md, knowledge.md | contexto/metas-objetivos.md, knowledge.md |
+| Contexto | context/metas-objetivos.md, knowledge/ | context/metas-objetivos.md, knowledge/ |
 
 ---
 

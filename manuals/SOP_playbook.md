@@ -23,9 +23,9 @@
 │     Crear estructura de carpetas (idempotente)               │
 │     ├── .agent/                                             │
 │     ├── agente.md                                           │
-│     ├── memory/memory.md                                    │
+│     ├── context/memory/memory.md                                    │
 │     ├── memory/conversaciones/                              │
-│     ├── contexto/                                           │
+│     ├── context/                                           │
 │     ├── agents/                                             │
 │     ├── manuals/                                            │
 │     └── docs/plantillas/                                    │
@@ -33,9 +33,9 @@
 │  2. Inyectar Plantillas                                     │
 │     Generar si no existen:                                  │
 │     ├── docs/plantillas/SDD_TEMPLATE.md                    │
-│     ├── contexto/systems-architecture.md                   │
-│     ├── contexto/metas-objetivos.md                         │
-│     ├── contexto/knowledge.md                               │
+│     ├── context/systems-architecture.md                   │
+│     ├── context/metas-objetivos.md                         │
+│     ├── context/knowledge/knowledge.md                               │
 │     └── memory/conversaciones/README.md                     │
 ├─────────────────────────────────────────────────────────────┤
 │  3. Preguntar Tipo                                          │
@@ -58,10 +58,10 @@
 │                                                             │
 │     | Pregunta        | Guarda en                          | │
 │     |-----------------|------------------------------------| │
-│     | Nombre, Tipo    | memory/memory.md                  | │
-│     | Objetivo, KPIs   | contexto/metas-objetivos.md      | │
-│     | Stakeholders    | contexto/knowledge.md             | │
-│     | Recursos        | contexto/knowledge.md             | │
+│     | Nombre, Tipo    | context/memory/memory.md                  | │
+│     | Objetivo, KPIs   | context/metas-objetivos.md      | │
+│     | Stakeholders    | context/knowledge/knowledge.md             | │
+│     | Recursos        | context/knowledge/knowledge.md             | │
 │     | Deadline        | Ambos                             | │
 ├─────────────────────────────────────────────────────────────┤
 │  6. Crear Estructura Específica                             │
@@ -179,7 +179,7 @@ python technical_core/scripts/log_conversation.py save --resumen "Resumen de ses
 /save
 ```
 
-### Cuándo guardar en `memory/memory.md`
+### Cuándo guardar en `context/memory/memory.md`
 
 - Decisiones de arquitectura/proyecto
 - Errores y soluciones descubiertas
@@ -228,8 +228,8 @@ python technical_core/scripts/log_memory.py decision "Decisión" "Contexto" "Res
 | Plantilla SDD Técnico | `docs/plantillas/SDD_TEMPLATE.md` |
 | Plantilla SDD Genérico | `generic/sdds/SDD_TEMPLATE_GENERIC.md` |
 | Guía Rápida | `docs/GUIA_RAPIDA.md` |
-| Reglas del Sistema | `contexto/systems-architecture.md` |
-| Definición de Éxito | `contexto/metas-objetivos.md` |
+| Reglas del Sistema | `context/systems-architecture.md` |
+| Definición de Éxito | `context/metas-objetivos.md` |
 
 ---
 

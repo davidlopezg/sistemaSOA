@@ -47,9 +47,9 @@ Generar archivos base si no existen
 **INMEDIATAMENTE después de respuestas, actualizar:**
 
 ```markdown
-# memory/memory.md → Config del proyecto
-# contexto/metas-objetivos.md → KPIs y objetivos
-# contexto/knowledge.md → Stakeholders y recursos
+# context/memory/memory.md → Config del proyecto
+# context/metas-objetivos.md → KPIs y objetivos
+# context/knowledge/knowledge.md → Stakeholders y recursos
 ```
 
 ### Paso 6: Crear Estructura + SDDs
@@ -67,13 +67,13 @@ Respuestas del usuario
        │
        ▼
 ┌─────────────────────────────────────┐
-│  ACTUALIZAR memory/memory.md        │
+│  ACTUALIZAR context/memory/memory.md        │
 │  └── Config: nombre, tipo, objetivo │
 ├─────────────────────────────────────┤
-│  ACTUALIZAR contexto/metas-objetivos│
+│  ACTUALIZAR context/metas-objetivos│
 │  └── KPIs, hitos, criterios éxito   │
 ├─────────────────────────────────────┤
-│  ACTUALIZAR contexto/knowledge.md   │
+│  ACTUALIZAR context/knowledge/knowledge.md   │
 │  └── Stakeholders, recursos, negocio│
 └─────────────────────────────────────┘
        │
@@ -85,7 +85,7 @@ Respuestas del usuario
 
 ## Sistema de Memoria
 
-### memory/memory.md - Cosas Importantes
+### context/memory/memory.md - Cosas Importantes
 - Config del proyecto (nombre, tipo, objetivo)
 - Decisiones de arquitectura
 - Errores y soluciones
@@ -139,7 +139,7 @@ Eres el Orquestador SOA. Enruta - lee requisitos, carga contexto, delega.
 - `/initsoa` → Inicializar proyecto (v3.0 - con contexto completo)
 - `/status` → Ver estado del proyecto
 - `/save` → Guardar sesión en memory/conversaciones/
-- `/learn` "mensaje" → Guardar aprendizaje en memory/memory.md
+- `/learn` "mensaje" → Guardar aprendizaje en context/memory/memory.md
 - `/help` → Mostrar ayuda
 
 ## /initsoa - Flujo Completo
@@ -156,15 +156,15 @@ Eres el Orquestador SOA. Enruta - lee requisitos, carga contexto, delega.
    - Recursos disponibles
    - Módulos/SDDs
 5. ACTUALIZAR archivos de contexto:
-   - memory/memory.md → Config proyecto
-   - contexto/metas-objetivos.md → KPIs
-   - contexto/knowledge.md → Stakeholders
+   - context/memory/memory.md → Config proyecto
+   - context/metas-objetivos.md → KPIs
+   - context/knowledge/knowledge.md → Stakeholders
 6. Crear estructura + SDDs + MASTER_PLAN
 
 ## Flujo de 5 Pasos
 
 1. RECEPCIÓN → Recibir objetivo
-2. CONTEXTO → Leer /contexto/ y .agent/
+2. CONTEXTO → Leer /context/ y .agent/
 3. PLANIFICACIÓN → Seleccionar recurso correcto
 4. EJECUCIÓN → Delegar y monitorear
 5. ENTREGA → Output validado en /docs/

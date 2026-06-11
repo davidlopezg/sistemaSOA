@@ -16,8 +16,8 @@ Cuando se actualice el sistema SOA:
 2. Actualizar versión en:
    - `.agent/SYSTEM_PROMPT.md`
    - `agente.md`
-   - `memory/memory.md`
-   - `contexto/systems-architecture.md`
+   - `context/memory/memory.md`
+   - `context/systems-architecture.md`
 
 ### Agregar nuevos comandos
 
@@ -41,7 +41,7 @@ Cuando `memory/conversaciones/` tenga > 50 archivos:
 ### Consolidar aprendizajes
 
 Periódicamente:
-1. Revisar `memory/memory.md`
+1. Revisar `context/memory/memory.md`
 2. Eliminar entradas obsoletas
 3. Mantener solo aprendizajes relevantes
 
@@ -58,7 +58,7 @@ Cuando un SDD está en estado "Completado" o "Producción":
 
 ### Eliminar SDDs obsoletos
 
-1. Documentar por qué se elimina en `memory/memory.md`
+1. Documentar por qué se elimina en `context/memory/memory.md`
 2. Eliminar archivo
 3. Actualizar `MASTER_PLAN.md`
 
