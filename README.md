@@ -8,13 +8,10 @@ Infraestructura cognitiva auto-contenida para orquestar agentes IA con comandos 
 
 ```
 sistemaSOA/
-├── .agent/              # Configuración de comportamiento del agente
-│   └── SYSTEM_PROMPT.md # Prompt base del sistema
+├── .agent/
+│   └── SYSTEM_PROMPT_BACKUP.md  # Backup del prompt (deprecated)
 │
-├── agente.md            # Agente Orquestador (punto de entrada)
-│   ├── Sección A: Iniciador    # /initsoa - crear proyectos desde cero
-│   ├── Sección B: Orquestador  # Delegar tareas durante el proyecto
-│   └── Sección C: Comunes      # Comandos, memoria, tipos de proyecto
+├── agente.md            # Documentación del Orquestador (el prompt real está en .agent/)
 │
 ├── agents/              # Plantillas de sub-agentes
 │   ├── agent-builder.md # Plantilla para crear nuevos agentes
@@ -33,7 +30,8 @@ sistemaSOA/
 │   └── systems-architecture.md # Reglas de oro del sistema
 │
 ├── systems/             # SDDs técnicos (proyectos de código)
-│   └── sdds/            # Documentos de diseño
+│   ├── MASTER_PLAN.md
+│   └── SDD_01_*.md
 │
 ├── generic/             # Para proyectos NO técnicos
 │   ├── sdds/            # SDDs genéricos
@@ -44,8 +42,7 @@ sistemaSOA/
 │   └── arnes_tests/     # Validación automatizada
 │
 ├── manuals/             # Procedimientos operativos
-├── docs/                # Salida, plantillas y guías
-└── conversations/       # Histórico de sesiones (deprecated, usar context/)
+└── docs/                # Salida, plantillas y guías
 ```
 
 ## Propósito de cada directorio
